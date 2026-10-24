@@ -1,0 +1,6 @@
+{
+  "name": "Nokkhotro Lifestyle - Bangladeshi Ecommerce",
+  "description": "Modern mobile-first Bangladeshi ecommerce store featuring fashion, gadgets, leathercraft, Cash on Delivery, and bKash/Nagad checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

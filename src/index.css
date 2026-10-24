@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', 'Hind Siliguri', system-ui, -apple-system, sans-serif;
+  --color-navy-950: #070f1e;
+  --color-navy-900: #0b1a30;
+  --color-navy-850: #102444;
+  --color-navy-800: #162f58;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Custom scrollbar for sleek aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Luxury card shadow */
+.shadow-luxury {
+  box-shadow: 0 4px 20px -2px rgba(11, 26, 48, 0.05), 0 2px 6px -1px rgba(11, 26, 48, 0.04);
+}
+
+.shadow-luxury-hover {
+  box-shadow: 0 20px 30px -4px rgba(11, 26, 48, 0.12), 0 8px 10px -2px rgba(11, 26, 48, 0.06);
+}
+
+.shadow-gold {
+  box-shadow: 0 10px 25px -3px rgba(245, 158, 11, 0.25);
+}
