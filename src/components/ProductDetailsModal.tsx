@@ -16,6 +16,7 @@ import {
 import { Product, Language } from '../types';
 import { formatBdt } from '../utils/shop';
 import { t } from '../data/translations';
+import { resolveStoreImage, STORE_IMAGES } from '../assets/images';
 
 interface ProductDetailsModalProps {
   product: Product | null;
@@ -130,7 +131,7 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                   className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-sm cursor-crosshair group"
                 >
                   <img
-                    src={product.images[selectedImageIndex] || product.images[0]}
+                    src={resolveStoreImage(product.images[selectedImageIndex] || product.images[0])}
                     alt={title}
                     className="w-full h-full object-cover object-center transition-transform duration-200 ease-out"
                     style={
@@ -142,6 +143,9 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                         : undefined
                     }
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                    }}
                   />
 
                   {/* Zoom hint badge */}
@@ -171,10 +175,13 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                         }`}
                       >
                         <img
-                          src={img}
+                          src={resolveStoreImage(img)}
                           alt={`Thumbnail ${idx + 1}`}
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                          }}
                         />
                       </button>
                     ))}
@@ -457,10 +464,13 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({
                     className="p-3 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow-md transition-all cursor-pointer flex items-center gap-3 group"
                   >
                     <img
-                      src={rel.images[0]}
+                      src={resolveStoreImage(rel.images[0])}
                       alt={rel.name[lang] || rel.name.en}
                       className="w-14 h-14 rounded-xl object-cover bg-slate-100 shrink-0 group-hover:scale-105 transition-transform"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                      }}
                     />
                     <div className="min-w-0 flex-1">
                       <p className="text-xs font-bold text-slate-900 truncate group-hover:text-blue-900">

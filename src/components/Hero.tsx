@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Sparkles, Star, Zap, ShieldCheck } from 'lucide-react';
 import { Language } from '../types';
 import { t } from '../data/translations';
+import { STORE_IMAGES } from '../assets/images';
 
 interface HeroProps {
   lang: Language;
@@ -97,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onExplore, onViewBestSellers }
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700/80 bg-slate-950 group">
               <img
-                src="/src/assets/images/hero_bangladesh_store_1792822458300.jpg"
+                src={STORE_IMAGES.hero}
                 alt="Nokkhotro Lifestyle Handcrafted Collection"
                 className="w-full h-80 sm:h-96 lg:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="eager"

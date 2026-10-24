@@ -13,6 +13,7 @@ import {
 import { Order, Language } from '../types';
 import { formatBdt } from '../utils/shop';
 import { t } from '../data/translations';
+import { STORE_IMAGES, resolveStoreImage } from '../assets/images';
 
 interface OrderSuccessViewProps {
   order: Order;
@@ -106,10 +107,13 @@ export const OrderSuccessView: React.FC<OrderSuccessViewProps> = ({
               <div key={item.id} className="py-3 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <img
-                    src={item.image}
+                    src={resolveStoreImage(item.image)}
                     alt={item.name[lang] || item.name.en}
                     className="w-12 h-12 rounded-lg object-cover bg-slate-100 border border-slate-200 shrink-0"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                    }}
                   />
                   <div>
                     <h4 className="text-sm font-bold text-slate-900">

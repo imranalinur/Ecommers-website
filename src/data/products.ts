@@ -1,4 +1,5 @@
 import { Product, StoreSettings } from '../types';
+import { STORE_IMAGES } from '../assets/images';
 
 export const initialStoreSettings: StoreSettings = {
   storeName: {
@@ -35,8 +36,8 @@ export const sampleProducts: Product[] = [
     price: 2450,
     originalPrice: 2950,
     images: [
-      '/src/assets/images/product_panjabi_premium_1792822457840.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.panjabi,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: 'Hand-detailed neckline and placket with breathable 100% combed cotton. Ideal for Eid, weddings, and formal evening gatherings.',
@@ -84,8 +85,8 @@ export const sampleProducts: Product[] = [
     price: 3650,
     originalPrice: 4500,
     images: [
-      '/src/assets/images/product_smartwatch_gadget_1792822458246.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.smartwatch,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: 'Ultra-bright 1.96" AMOLED display, Bluetooth calling with noise reduction mic, 7-day battery life, and complete Bengali notification support.',
@@ -135,8 +136,8 @@ export const sampleProducts: Product[] = [
     price: 1350,
     originalPrice: 1750,
     images: [
-      '/src/assets/images/product_leather_wallet_1792822458880.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.wallet,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: 'Hand-stitched Hazaribagh heritage full-grain cowhide leather with RFID blocking technology and brass button fastener.',
@@ -182,8 +183,8 @@ export const sampleProducts: Product[] = [
     price: 1850,
     originalPrice: 2400,
     images: [
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
-      '/src/assets/images/product_smartwatch_gadget_1792822458246.jpg',
+      STORE_IMAGES.hero,
+      STORE_IMAGES.smartwatch,
     ],
     shortDescription: {
       en: 'Deep bass dynamic drivers, 32dB active noise cancellation for Dhaka traffic, low latency gaming mode, and 36-hour total playback.',
@@ -232,8 +233,8 @@ export const sampleProducts: Product[] = [
     price: 3200,
     originalPrice: 3800,
     images: [
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
-      '/src/assets/images/product_panjabi_premium_1792822457840.jpg',
+      STORE_IMAGES.hero,
+      STORE_IMAGES.panjabi,
     ],
     shortDescription: {
       en: 'Authentic Tangail weavers hand-loom pure cotton saree with traditional geometric Jamdani motifs and matching unstitched blouse piece.',
@@ -281,8 +282,8 @@ export const sampleProducts: Product[] = [
     price: 4850,
     originalPrice: 5800,
     images: [
-      '/src/assets/images/product_leather_wallet_1792822458880.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.wallet,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: 'Fits up to 15.6" laptop with padded velvet compartment, antique brass hardware, and detachable ergonomic shoulder strap.',
@@ -329,8 +330,8 @@ export const sampleProducts: Product[] = [
     price: 1150,
     originalPrice: 1450,
     images: [
-      '/src/assets/images/product_panjabi_premium_1792822457840.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.panjabi,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: '220 GSM heavyweight pique knit polo with anti-pilling wash, no-curl ribbed collar, and athletic regular cut.',
@@ -376,8 +377,8 @@ export const sampleProducts: Product[] = [
     price: 2750,
     originalPrice: 3300,
     images: [
-      '/src/assets/images/product_smartwatch_gadget_1792822458246.jpg',
-      '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+      STORE_IMAGES.smartwatch,
+      STORE_IMAGES.hero,
     ],
     shortDescription: {
       en: 'Charge laptops, iPhones, and Androids at 65W PD speed. LED percentage display, dual Type-C + USB output, flight approved.',
@@ -435,7 +436,7 @@ export const sampleInitialOrders = [
           bn: 'রয়্যাল মিডনাইট সুতি এমব্রয়ডারি করা পাঞ্জাবি',
         },
         price: 2450,
-        image: '/src/assets/images/product_panjabi_premium_1792822457840.jpg',
+        image: STORE_IMAGES.panjabi,
         quantity: 1,
         selectedSize: '42 (L)',
         selectedColor: 'Midnight Navy',
@@ -465,7 +466,7 @@ export const sampleInitialOrders = [
           bn: 'আর্টিসান ফুল-গ্রেইন ভিন্টেজ চামড়ার দ্বি-ভাঁজ ওয়ালেট',
         },
         price: 1350,
-        image: '/src/assets/images/product_leather_wallet_1792822458880.jpg',
+        image: STORE_IMAGES.wallet,
         quantity: 1,
         selectedColor: 'Vintage Tan Brown',
       },
@@ -477,7 +478,7 @@ export const sampleInitialOrders = [
           bn: 'অরা সাউন্ড এএনসি ওয়্যারলেস ইয়ারবাডস',
         },
         price: 1850,
-        image: '/src/assets/images/hero_bangladesh_store_1792822458300.jpg',
+        image: STORE_IMAGES.hero,
         quantity: 1,
         selectedColor: 'Matte Obsidian Black',
       },

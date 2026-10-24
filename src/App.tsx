@@ -25,6 +25,7 @@ import { Footer } from './components/Footer';
 import { Heart, X, Trash2, ShoppingBag } from 'lucide-react';
 import { formatBdt } from './utils/shop';
 import { t } from './data/translations';
+import { resolveStoreImage } from './assets/images';
 
 export default function App() {
   // 1. Language state
@@ -47,7 +48,13 @@ export default function App() {
     const saved = localStorage.getItem('nokkhotro_products');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((p: Product) => ({
+            ...p,
+            images: (p.images || []).map((img: string) => resolveStoreImage(img)),
+          }));
+        }
       } catch (e) {
         // fallback
       }
@@ -81,7 +88,16 @@ export default function App() {
     const saved = localStorage.getItem('nokkhotro_orders');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((o: Order) => ({
+            ...o,
+            items: (o.items || []).map((it) => ({
+              ...it,
+              image: resolveStoreImage(it.image),
+            })),
+          }));
+        }
       } catch (e) {
         // fallback
       }
@@ -98,7 +114,13 @@ export default function App() {
     const saved = localStorage.getItem('nokkhotro_cart');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((it: CartItem) => ({
+            ...it,
+            image: resolveStoreImage(it.image),
+          }));
+        }
       } catch (e) {
         // fallback
       }

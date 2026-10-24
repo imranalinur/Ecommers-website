@@ -17,6 +17,7 @@ import {
 import { Order, Product, StoreSettings, Language, OrderStatus } from '../types';
 import { formatBdt } from '../utils/shop';
 import { t } from '../data/translations';
+import { STORE_IMAGES } from '../assets/images';
 
 interface AdminPortalProps {
   lang: Language;
@@ -108,7 +109,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       },
       category: newCategory,
       price: Number(newPrice) || 1200,
-      images: ['/src/assets/images/hero_bangladesh_store_1792822458300.jpg'],
+      images: [STORE_IMAGES.hero],
       shortDescription: {
         en: 'High quality handcrafted Bangladeshi essentials.',
         bn: 'উন্নত মানের দেশীয় পণ্য।',

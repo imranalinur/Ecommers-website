@@ -17,6 +17,7 @@ import { Hero } from './Hero';
 import { TrustBadges } from './TrustBadges';
 import { ProductCard } from './ProductCard';
 import { t } from '../data/translations';
+import { STORE_IMAGES } from '../assets/images';
 
 interface HomeViewProps {
   products: Product[];
@@ -53,21 +54,21 @@ export const HomeView: React.FC<HomeViewProps> = ({
       key: 'apparel' as CategoryKey,
       title: lang === 'bn' ? 'ঐতিহ্যবাহী ও আধুনিক পোশাক' : 'Heritage & Modern Apparel',
       desc: lang === 'bn' ? 'খাঁটি সুতি পাঞ্জাবি, শাড়ি ও ক্যাজুয়াল পোলো' : 'Combed cotton Panjabis, Jamdani sarees & polos',
-      image: '/src/assets/images/product_panjabi_premium_1792822457840.jpg',
+      image: STORE_IMAGES.panjabi,
       itemCount: products.filter((p) => p.category === 'apparel').length,
     },
     {
       key: 'gadgets' as CategoryKey,
       title: lang === 'bn' ? 'স্মার্ট গ্যাজেট ও ইলেকট্রনিক্স' : 'Smart Gadgets & Audio',
       desc: lang === 'bn' ? 'অ্যামোলেড কলিং স্মার্টওয়াচ ও এএনসি ইয়ারবাডস' : 'Bangla-ready smartwatches, ANC earbuds & PD power banks',
-      image: '/src/assets/images/product_smartwatch_gadget_1792822458246.jpg',
+      image: STORE_IMAGES.smartwatch,
       itemCount: products.filter((p) => p.category === 'gadgets').length,
     },
     {
       key: 'leather' as CategoryKey,
       title: lang === 'bn' ? 'খাঁটি চামড়ার পণ্য' : 'Handcrafted Leather Goods',
       desc: lang === 'bn' ? 'ফুল-গ্রেইন ওয়ালেট, বেল্ট ও ল্যাপটপ মেসেঞ্জার ব্যাগ' : 'Full-grain cowhide wallets, cardholders & messenger bags',
-      image: '/src/assets/images/product_leather_wallet_1792822458880.jpg',
+      image: STORE_IMAGES.wallet,
       itemCount: products.filter((p) => p.category === 'leather').length,
     },
   ];
@@ -366,7 +367,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-6">
               <div className="rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl">
                 <img
-                  src="/src/assets/images/hero_bangladesh_store_1792822458300.jpg"
+                  src={STORE_IMAGES.hero}
                   alt="Bangladeshi Artisanal Quality"
                   className="w-full h-84 object-cover"
                   referrerPolicy="no-referrer"

@@ -28,6 +28,7 @@ import {
   BANGLADESH_DISTRICTS,
 } from '../utils/shop';
 import { t } from '../data/translations';
+import { STORE_IMAGES, resolveStoreImage } from '../assets/images';
 
 interface CheckoutViewProps {
   items: CartItem[];
@@ -587,10 +588,13 @@ export const CheckoutView: React.FC<CheckoutViewProps> = ({
                 {items.map((it) => (
                   <div key={it.id} className="pt-3 first:pt-0 flex items-center gap-3">
                     <img
-                      src={it.image}
+                      src={resolveStoreImage(it.image)}
                       alt={it.name[lang] || it.name.en}
                       className="w-12 h-12 rounded-lg object-cover bg-slate-100 border border-slate-200 shrink-0"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                      }}
                     />
                     <div className="flex-1 min-w-0 text-xs">
                       <p className="font-bold text-slate-900 truncate">

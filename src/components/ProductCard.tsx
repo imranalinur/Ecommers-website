@@ -3,6 +3,7 @@ import { Star, ShoppingBag, Eye, Heart, Sparkles } from 'lucide-react';
 import { Product, Language } from '../types';
 import { formatBdt } from '../utils/shop';
 import { t } from '../data/translations';
+import { STORE_IMAGES, resolveStoreImage } from '../assets/images';
 
 interface ProductCardProps {
   product: Product;
@@ -36,7 +37,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   const hasDiscount = product.originalPrice && product.originalPrice > product.price;
   const discountSavings = hasDiscount ? product.originalPrice! - product.price : 0;
-  const secondaryImage = product.images[1] || product.images[0];
+  const primaryImage = resolveStoreImage(product.images[0]);
+  const secondaryImage = resolveStoreImage(product.images[1] || product.images[0]);
 
   return (
     <article
@@ -49,7 +51,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
         {/* Primary Image */}
         <img
-          src={product.images[0]}
+          src={primaryImage}
           alt={title}
           className={`absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-out ${
             isHovered && product.images.length > 1 ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
@@ -57,8 +59,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           loading="lazy"
           referrerPolicy="no-referrer"
           onError={(e) => {
-            (e.target as HTMLImageElement).src =
-              '/src/assets/images/hero_bangladesh_store_1792822458300.jpg';
+            (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
           }}
         />
 
@@ -72,6 +73,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             }`}
             loading="lazy"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+            }}
           />
         )}
 

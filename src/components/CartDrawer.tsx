@@ -3,6 +3,7 @@ import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Sparkles } from 'lucid
 import { CartItem, Language } from '../types';
 import { formatBdt, calculateCartTotals } from '../utils/shop';
 import { t } from '../data/translations';
+import { STORE_IMAGES, resolveStoreImage } from '../assets/images';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -112,10 +113,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 return (
                   <div key={item.id} className="py-4 flex gap-4 items-center">
                     <img
-                      src={item.image}
+                      src={resolveStoreImage(item.image)}
                       alt={itemName}
                       className="w-16 h-16 rounded-xl object-cover bg-slate-100 border border-slate-200 shrink-0"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = STORE_IMAGES.hero;
+                      }}
                     />
 
                     <div className="flex-1 min-w-0">
